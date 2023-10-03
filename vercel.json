@@ -16,6 +16,10 @@
     {
       "src": "/(.*)",
       "dest": "portfolio/wsgi.py"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "static/$1"
     }
   ]
 }
