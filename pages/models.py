@@ -54,7 +54,7 @@ class Portfolio(models.Model):
     portLabelDesc = models.TextField()
     portCoverImg = models.ImageField(upload_to='static/img')
     isActive = models.BooleanField(default=False)
-    portURL = models.URLField()
+    portURL = models.URLField(blank=True)
     updated = models.DateTimeField(auto_now=True)
     
     def __str__(self):

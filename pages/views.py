@@ -8,7 +8,6 @@ def home(request):
     # will automatically replace profile pic to the latest uploaded image
 
     profilePic = Profile.objects.latest('updated')
-    # profilePic = Profile.objects.all()
 
     # get content of Home model from model.py
     # You can change what you want to display as greetings (ex: "Hi I'm Ian")
@@ -18,7 +17,6 @@ def home(request):
     title_content = MyTitles.objects.all()
     
     # About section
-    # about = About.objects.latest('updated')
     about = About.objects.latest('updated')
     # about = About.objects.all()
     s = ', '.join([str(record.myJobs) for record in title_content])
@@ -28,7 +26,7 @@ def home(request):
 
     # Contacts section
     contact = Contact.objects.latest('updated')
-    # contact = Contact.objects.all()
+
 
     # Portfolio displayed in carousel
     portfolios = Portfolio.objects.all()
