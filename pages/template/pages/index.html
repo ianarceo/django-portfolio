@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+      <div class="hero-container" data-aos="fade-in">
+        <h1>{{ home_content.greet }}</h1>
+            <p><span class="typed" data-typed-items="{{jobs_content}}"></span></p>
+      </div>
+    </section><!-- End Hero -->
+  
+    <main id="main">
+  
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+        <div class="container">
+          <div class="section-title">
+            <h2>About</h2>
+          </div>
+          <div class="mx-auto" data-aos="fade-up" data-aos-delay="100">
+            <p>{{about.aboutDescSec}}</p>
+          </div>
+        </div>
+      </section><!-- End About Section -->
+  
+      <!-- ======= Skills Section ======= -->
+      <section id="skills" class="skills section-bg">
+        <div class="container">
+          <div class="section-title">
+            <h2>Tech Stack</h2>
+          </div>
+          <div class="mx-auto" style="width: 550px;" data-aos="fade-up" data-aos-delay="100">
+            {% for skills in skills %}
+            <div class="zoom">
+              <a href="{{skills.skillsURL}}" target="_blank">
+                <img src="{{skills.skillsImg.url}}" alt="{{skills.skillsName}}" height="60" width="60"> 
+                <div class="animate">
+                  {{skills.skillsName}}
+                </div>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+      <!-- End Skills Section -->
+  
+      <!-- ======= Portfolio Section ======= -->
+      <section id="portfolio" class="portfolio section-bg">
+        <div class="container" >
+          <div class="section-title">
+            <h2>Projects</h2>
+            <p>You may click on the link to know more about my personal projects. Check it out! Source code can be downloaded at github.</p>
+          </div>
+          <div class="mx-auto" style="width: 550px;" data-aos="fade-up" data-aos-delay="100">
+            <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                {% for portfolio in portfolio %}
+                  {% if portfolio.isActive %}
+                    <div class="carousel-item active">
+                        <a href="portfolio/{{portfolio.pk}}">
+                          <img src="{{portfolio.portCoverImg.url}}" class="d-block w-100" alt="...">
+                        </a>
+                      <div class="carousel-caption d-none d-md-block">
+                        <h5>{{portfolio.portLabel}}</h5>
+                        <p>{{portfolio.portLabelDesc|truncatechars:50}}</p>
+                      </div>
+                    </div>
+                  {% else %}
+                  <div class="carousel-item">
+                    <a href="portfolio/{{portfolio.pk}}">
+                      <img src="{{portfolio.portCoverImg.url}}" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>{{portfolio.portLabel}}</h5>
+                      <p>{{portfolio.portLabelDesc|truncatechars:50}}</p>
+                    </div>
+                  </a>                   
+                  </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div> <!--end div row container-->
+      </section>
+  
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <div class="section-title">
+            <h2>Contact</h2>
+            <p>I always check my email so feel free to send me an email. You may also download my CV </p>
+          </div>
+          <div class="row" data-aos="fade-in" data-aos-delay="100"> 
+            <div class="col-lg-5 d-flex align-items-stretch">
+              <div class="info">
+                <div class="address">
+                  <i class="bi bi-geo-alt"></i>
+                  <h4>Address</h4>
+                  <p>{{contact.address}}</p>
+                </div>
+  
+                <div class="email">
+                  <i class="bi bi-envelope"></i>
+                  <h4>Email:</h4>
+                  <p>{{contact.email}}</p>
+                </div>
+  
+                <div class="phone">
+                  <i class="bi bi-phone"></i>
+                  <h4>Call:</h4>
+                  <p>{{contact.phone}} </p>
+                </div>
+              </div>
+  
+            </div>
+  
+            <div class="col-lg-7 d-flex align-items-stretch">
+              <div class="info">
+                <a href="download/">
+                <div class="text-center"><button>Download CV</button></div>
+              </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><!-- End Contact Section -->
+  
+    </main><!-- End #main -->
+  {% endblock %}
