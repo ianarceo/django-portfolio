@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-a^q*ja)&dy^vg^f94h7v11km5za-fn#o72bxoze=&-*)cx*j#4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'appspot.com']
+ALLOWED_HOSTS = ['127.0.0.1', '35.247.137.9']
 
 
 # Application definition
@@ -88,7 +88,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static/'),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # whitenoise
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
@@ -116,10 +116,10 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 DATABASES = {
   'default': {
     'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'neondb',
-    'USER': 'ianarceo',
-    'PASSWORD': 'pmv3Nt5QLgai',
-    'HOST': 'ep-old-rice-37413554.us-east-2.aws.neon.tech',
+    'NAME': 'portdb',
+    'USER': 'iana',
+    'PASSWORD': 'pinoyaku05',
+    'HOST': 'localhost',
     'PORT': '5432',
   }
 }
