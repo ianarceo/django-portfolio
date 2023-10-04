@@ -1,0 +1,7 @@
+runtime: python39
+entrypoint: gunicorn -b :$PORT portfolio.wsgi
+env_variables:
+  DJANGO_SETTINGS_MODULE: 'portfolio.settings'
+handlers:
+- url: /.*
+  script: auto
